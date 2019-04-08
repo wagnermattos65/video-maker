@@ -68,3 +68,7 @@ docs
 
 # content
 content.json
+content/*.png
+
+# Blacklist file
+images-blacklist.*

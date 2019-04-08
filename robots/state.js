@@ -1,5 +1,6 @@
 const fs = require('fs')
 const contentFilePath = './content.json'
+const imagesBlacklistPath = './images-blacklist.json'
 
 function save(content) {
     const contentString = JSON.stringify(content)
@@ -12,7 +13,19 @@ function load() {
     return contentJson
 }
 
+function loadBlacklist() {
+    try {
+        const fileBuffer = fs.readFileSync(imagesBlacklistPath, 'utf-8')
+        const contentJson = JSON.parse(fileBuffer)
+
+    } catch (err) {
+        contentJson = []
+    }
+    return contentJson
+}
+
 module.exports = {
     save,
-    load
+    load,
+    loadBlacklist
 }
